@@ -45,3 +45,31 @@ function MyOnSaleStatusOrder($ID, $val)
    }
 }
 ```
+
+### bitrix:intranet.user.selector.new
+
+> Выбор пользователей
+
+```php
+$APPLICATION->IncludeComponent(
+'bitrix:intranet.user.selector.new',
+'',
+array(
+	'MULTIPLE' => 'N',
+	//'NAME' => ,
+	//'INPUT_NAME' => ,
+	//'POPUP' => 'Y',
+	//'INPUT_NAME' => "estimate_contact",
+	'INPUT_NAME_STRING' => "estimate_contact_h",
+	'INPUT_NAME_SUSPICIOUS' => "estimate_contact_h",
+	'TEXTAREA_MIN_HEIGHT' => 30,
+	'TEXTAREA_MAX_HEIGHT' => 60,
+	//'INPUT_VALUE' => $thisEstimate['CONTACT'],
+	//'EXTERNAL' => 'A',
+	'SOCNET_GROUP_ID' => ($arParams["TASK_TYPE"] == "group" ? $arParams["OWNER_ID"] : "")
+
+),
+null,
+array('HIDE_ICONS' => 'Y')
+);
+```
