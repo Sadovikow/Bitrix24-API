@@ -22,29 +22,7 @@ endif;
 	CCrmCompany::GetList - Компании
 	CCrmLead::GetList - Лиды
 	CCrmDeal::GetList - Сделки
-
-
-
-### Отправляем SMS при смене статуса заказа
-
-Задача, **нужно добавить дополнительное уведомление по sms администратору о смене заказа.**
-
-Заходим в /bitrix/php_interfaces/init.php(если его нет, то создаем). И пишем простой код. 
-
-```php
-AddEventHandler("sale", "OnSaleStatusOrder", "MyOnSaleStatusOrder");
-function MyOnSaleStatusOrder($ID, $val)
-{
-   if (CModule::IncludeModule("rarus.sms4b"))
-   {
-      global $SMS4B;
-      $text = "У заказа №".$ID." поменялся статус заказа";
-      $adminPhoneNumber = "79999999999"; // Телефон администратора
-      
-      $SMS4B->SendSms($text, $adminPhoneNumber);
-   }
-}
-```
+	
 
 ### bitrix:intranet.user.selector.new
 
